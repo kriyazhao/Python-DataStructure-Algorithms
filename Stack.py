@@ -1,4 +1,3 @@
-import os, sys
 
 class Stack:
     
@@ -21,16 +20,16 @@ class Stack:
         return len(self.items)
 
 if __name__ == "__main__":
+
     s=Stack()
 
     print "Is the stack empty? ", s.isEmpty()
-    s.push(4)
-    s.push('dog')
+    s.push("cat")
+    s.push(200)
     print "The current last item in the stack is: ", s.peek()
     s.push(True)
     print "The size of the stack is: ", s.size()
     print "Is the stack empty? ", s.isEmpty()
-    s.push(8.4)
     print "Pop item in the stack: ", s.pop()
     print "Pop another item in the stack: ", s.pop()
     print "The size of the stack is: ", s.size()  

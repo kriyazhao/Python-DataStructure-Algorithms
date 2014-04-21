@@ -1,4 +1,4 @@
-# ------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 # SampleCode_Ting.py
 # Created on: 2013-04-07 10:53:10.00000
 # Author: Ting Zhao
@@ -7,11 +7,11 @@
 #              - revString()       reverse a string using Stack                 O(n)
 #              - parChecker()      check simple balanced parentheses            O(n)
 #              - symChecker()      check balanced symbols                       O(n)
-#              - DecimalToBinary() convert decimal numbers to binary numbers    O(n)
-#              - DecimalToBase()   convert decimal numbers to any base numbers  O(n)
+#              - DecimalToBinary() convert decimal numbers to binary numbers    O(logn)
+#              - DecimalToBase()   convert decimal numbers to any base numbers  O(logn) - worst scenario
 #              - infixToPostfix()  transform infix to postfix expression        O(n)
 #              - postfixEva()      postfix expression evaluation                O(n)
-# ------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 
 from datastructure import Stack
 

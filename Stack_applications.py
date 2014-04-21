@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------------------------------------
-# SampleCode_Ting.py
+# Stack_applications.py
 # Created on: 2013-04-07 10:53:10.00000
 # Author: Ting Zhao
 # Usage: define some functions that use Stack structure

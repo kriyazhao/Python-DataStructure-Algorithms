@@ -1,3 +1,15 @@
+# ---------------------------------------------------------------------------
+# Stack.py
+# Created on: 2013-04-06 9:33:01.00000
+# Author: Ting Zhao
+# Usage: define a stack class
+# Description: create a stack class and define some functions:
+#              - isEmpty() O(1)
+#              - push()    O(1)
+#              - pop()     O(1)
+#              - peek()    O(n)
+#              - size()    O(n)
+# ---------------------------------------------------------------------------
 
 class Stack:
     

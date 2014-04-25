@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# Stack.py
+# 1.1_Stack.py
 # Created on: 2013-04-06 9:33:01.00000
 # Author: Ting Zhao
 # Usage: define a stack class

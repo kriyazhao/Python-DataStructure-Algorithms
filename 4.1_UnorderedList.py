@@ -4,13 +4,18 @@
 # Author: Ting Zhao
 # Usage: define a Node class and a UnorderedList class
 # Description: create a UnorderedList class and define some functions:
-#              - isEmpty() O(1)
-#              - push()    O(1)
-#              - pop()     O(1)
-#              - peek()    O(n)
-#              - size()    O(n)
+#              - Node class    define a node class to store item's properties in the list
+#              - UnorderedList define a unorderedlist class
+#                  - isEmpty()   O(1)
+#                  - size()      O(n)
+#                  - index()     O(n)
+#                  - add()       O(1)
+#                  - append()    O(1)
+#                  - insert()    O(n)
+#                  - search()    O(n)
+#                  - remove()    O(n)
+#                  - pop(pos)    O(n)
 # ---------------------------------------------------------------------------
-
 
 class Node:
 
@@ -113,18 +118,34 @@ class UnorderedList:
             next = current.getNext()
         current.setNext(next.getNext())
         self.tail = current
-
-    def pop(self, pos):
+            
+    def pop(self, pos = None):
         count = 0
         current = self.head
-        if pos == self.size():
-            self.pop()
+        previous = None
+        if pos >= self.size():
+            raise IndexError
+            return
         else:
-            while count < (pos - 1):
-                count += 1
-                current = current.getNext()
-            current.setNext(current.getNext().getNext())
-
+            if current.getNext() == None:
+                self.head = None
+                return current.getData()
+            else:
+                if pos == None:
+                    while current.getNext() != None:
+                        previous = current
+                        current = current.getNext()
+                    previous.setNext(current.getNext())
+                    self.tail = previous
+                    return current.getData()
+                else:
+                    while count < pos:
+                        count += 1
+                        previous = current
+                        current = current.getNext()
+                    previous.setNext(current.getNext())
+                    return current.getData()
+            
 myList = UnorderedList()
 myList.add(13)
 myList.add(38)
@@ -137,8 +158,9 @@ print "If number 14 is in the list? ", myList.search(14)
 myList.remove(50)
 print "the size of the list is: ", myList.size()
 myList.append(70)
-print "the index of number '45' is: ", myList.index(45)
+print "the index of number '14' is: ", myList.index(14)
 myList.insert(4, 48)
-myList.pop(2)
+print "Pop the item at position 2 in the list:", myList.pop(2)
+print "Pop the last item in the ordered list:", myList.pop()
 print "the size of the list is: ", myList.size()
 

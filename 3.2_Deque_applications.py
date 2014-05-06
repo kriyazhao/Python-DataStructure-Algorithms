@@ -7,6 +7,8 @@
 #              - palinChecker()     check if the input string is palindrome      O(n)
 # ------------------------------------------------------------------------------------------------------------
 
+from datastructure import Deque
+
 #-----------------------------------------------------
 # check Palindrome
 def palinChecker(inputStr):

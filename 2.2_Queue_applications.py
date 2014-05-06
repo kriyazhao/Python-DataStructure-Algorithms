@@ -11,6 +11,8 @@
 #                - Task class      define a task class to store task properties        O(1)
 # ----------------------------------------------------------------------------------------------------------
 
+from datastructure import Queue
+
 #----------------------------------------------------------------
 # simulate Hot Potato the Game
 def hotPotatoes(nameList, cycNum):

@@ -1,3 +1,4 @@
+from datastructure import Stack
 
 #-----------------------------------------------------------------
 # Tower of Hanoi

@@ -125,7 +125,12 @@ class BinarySearchTree:
                 delNode.parent.leftChild = None
             else:
                 delNode.parent.rightChild = None
-        elif delNode.hasAnyChildren(): # delNode has only one child
+        elif delNode.hasBothChildren(): # delNode has both children
+            successor = delNode.findSuccessor()
+            self.remove(successor)
+            delNode.key = successor.key
+            delNode.value = successor.value
+        else: # delNode has only one child
             if delNode.hasLeftChild():
                 if delNode.isLeftChild():
                     delNode.leftChild.parent = delNode.parent
@@ -150,11 +155,6 @@ class BinarySearchTree:
                                             delNode.rightChild.value,
                                             delNode.rightChild.leftChild,
                                             delNode.rightChild.rightChild)
-        else: # delNode has both children
-            successor = delNode.findSuccessor()
-            self.remove(successor)
-            delNode.key = successor.key
-            delNode.value = successor.value
 
     def findSuccessor(self):
         currentNode = self.rightChild

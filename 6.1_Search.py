@@ -108,7 +108,9 @@ class HashTable():
                 self.data[nextHash] = value
         if float(self.__len__()) / float(self.size) > 0.8:
             self.size += 10
-        
+            self.slots += [None] * 10
+            self.data += [None] * 10
+
     def hashFunction(self, key):
         return key % self.size
 

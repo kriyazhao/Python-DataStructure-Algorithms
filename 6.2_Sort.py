@@ -68,11 +68,11 @@ print myList
 #----------------------------------------------------------------------------------
 # Define Shell Sort
 def shellSort(inputList, increment):
-    subListNum = len(inputList) // increment
-    while subListNum > 0:
-        for subListStart in range(subListNum):
-            gapInsertionSort(inputList, subListStart, subListNum)
-        subListNum = subListNum // increment
+    subListLen = len(inputList) // increment
+    while subListLen > 0:
+        for subListStart in range(subListLen):
+            gapInsertionSort(inputList, subListStart, subListLen)
+        subListLen = subListLen // increment
 
 def gapInsertionSort(inputList, subListStart, gap):
     for index in range(subListStart, len(inputList), gap):

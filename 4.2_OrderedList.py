@@ -53,7 +53,7 @@ class OrderedList:
         count = 0
         current = self.head
         while current.getData() != item:
-            if current.getNext != None:
+            if current.getNext() != None:
                 count += 1
                 current = current.getNext()
             else:

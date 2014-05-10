@@ -83,7 +83,8 @@ def changePrint(change, coinUsed):
 
 coinList = [1, 5, 10, 25]
 change = 76
-coinUsed = coinMins = [i * 0 for i in range(change + 2)]
+coinUsed = [i * 0 for i in range(change + 2)]
+coinMins = [i * 0 for i in range(change + 2)]
 print "The minimum number of coins for change", change, "is:"
 print minChange(coinList, change, coinMins, coinUsed)
 print "They are:"
@@ -102,9 +103,7 @@ def maxProfits(itemList, wtlimit, profitMaxes, itemUsed):
             continue
         else:
             for itemWeight in itemCandidate:
-                if (weight - itemWeight) != 0 and profitMaxes[weight - itemWeight] == profitCount:
-                    continue
-                elif profitMaxes[weight - itemWeight] + itemList[itemWeight]> profitCount:
+                if profitMaxes[weight - itemWeight] + itemList[itemWeight]> profitCount:
                     profitCount = profitMaxes[weight - itemWeight] + itemList[itemWeight]
                     newItem = itemWeight
             profitMaxes[weight] = profitCount

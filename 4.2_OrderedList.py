@@ -53,8 +53,11 @@ class OrderedList:
         count = 0
         current = self.head
         while current.getData() != item:
-            count += 1
-            current = current.getNext()
+            if current.getNext != None:
+                count += 1
+                current = current.getNext()
+            else:
+                raise IndexError
         return count
 
     def add(self, item):

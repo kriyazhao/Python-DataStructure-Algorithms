@@ -110,15 +110,6 @@ class UnorderedList:
         newNode.setNext(current.getNext())
         current.setNext(newNode)
         
-    def pop(self):
-        current = self.head
-        next = current.getNext()
-        while next.getNext() != None:
-            current = next
-            next = current.getNext()
-        current.setNext(next.getNext())
-        self.tail = current
-            
     def pop(self, pos = None):
         count = 0
         current = self.head
@@ -145,7 +136,7 @@ class UnorderedList:
                         current = current.getNext()
                     previous.setNext(current.getNext())
                     return current.getData()
-            
+                    
 myList = UnorderedList()
 myList.add(13)
 myList.add(38)

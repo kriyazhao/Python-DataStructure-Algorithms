@@ -9,8 +9,8 @@ class Vertex:
         self.distance = 0
         self.pred = None
         self.color = "white"
-		self.disTime = 0
-		self.finTime = 0
+        self.disTime = 0
+        self.finTime = 0
 
     def addNeighbor(self, nbr, weight = 0):
         self.connectedTo[nbr] = weight
@@ -45,13 +45,13 @@ class Vertex:
     def setColor(self, color):
         self.color = color
 
-	def getDiscovery(self):
+    def getDiscovery(self):
         return self.disTime
 
     def setDiscovery(self, time):
         self.disTime = time
 
-	def getFinish(self):
+    def getFinish(self):
         return self.finTime
 
     def setFinish(self, time):

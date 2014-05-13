@@ -22,7 +22,7 @@ class BFSGraph(Graph):
                     nbr.setPred(currentVert)
                     print "enqueue:", nbr.getID()
                     vertQueue.enqueue(nbr)
-                    currentVert.setColor("black")
+            currentVert.setColor("black")
                             
     def Traverse(self,targetVert):
         currentVert = targetVert

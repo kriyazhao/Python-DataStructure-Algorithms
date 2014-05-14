@@ -157,6 +157,7 @@ class BinarySearchTree:
                                             delNode.rightChild.rightChild)
 
     def findSuccessor(self):
+        currentNode = None
         if self.hasRightChild():
             currentNode = self.rightChild
             while currentNode.hasLeftChild():

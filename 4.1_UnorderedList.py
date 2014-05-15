@@ -70,20 +70,25 @@ class UnorderedList:
         return False
     
     def remove(self, item):
-        current = self.head
-        previous = None
-        result = False
-        while not result:
-            if not current.getData() == item:
+        if self.size() == 0:
+            raise KeyError
+        else:
+            current = self.head
+            previous = None
+            while current.getNext() != None and current.getData() != item:
                 previous = current
                 current = current.getNext()
+            # if item is found at the head position
+            if previous == None:
+                if self.size() == 1:
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head = current.getNext()
             else:
-                result = True
-        # if item is found at the head position
-        if previous == None:
-            self.head = current.getNext()
-        else:
-            previous.setNext(current.getNext()) 
+                previous.setNext(current.getNext())
+                if current.getNext() == None:
+                    self.tail = previous
 
     def append(self, item):
         newNode = Node(item)

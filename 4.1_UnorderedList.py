@@ -129,32 +129,26 @@ class UnorderedList:
             current.setNext(newNode)
         
     def pop(self, pos = None):
-        count = 0
-        current = self.head
-        previous = None
-        if pos >= self.size():
+        if pop >= self.size():
             raise IndexError
-            return
+        if pos == None:
+            pos = self.size() - 1
+        count = 0
+        previous = None
+        current = self.head
+        while count < pos:
+            count += 1
+            previous = current
+            current = current.getNext()
+        if previous == None:
+            self.head = current.getNext()
+            if self.size() == 1:
+                self.tail = None
         else:
+            previous.setNext(current.getNext())
             if current.getNext() == None:
-                self.head = None
-                return current.getData()
-            else:
-                if pos == None:
-                    while current.getNext() != None:
-                        previous = current
-                        current = current.getNext()
-                    previous.setNext(current.getNext())
-                    self.tail = previous
-                    return current.getData()
-                else:
-                    while count < pos:
-                        count += 1
-                        previous = current
-                        current = current.getNext()
-                    previous.setNext(current.getNext())
-                    return current.getData()
-                    
+                self.tail = previous
+
 myList = UnorderedList()
 myList.add(13)
 myList.add(38)

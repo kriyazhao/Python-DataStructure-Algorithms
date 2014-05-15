@@ -100,15 +100,25 @@ class UnorderedList:
         return count
 
     def insert(self, pos, item):
-        count = 0
-        current = self.head
-        # get the node that is previous to the pos node 
-        while count < (pos - 1):
-            count += 1
-            current = current.getNext()
-        newNode = Node(item)
-        newNode.setNext(current.getNext())
-        current.setNext(newNode)
+        if pos >= self.size():
+            raise IndexError
+        elif pos == 0:
+            newNode = Node(item)
+            if self.head == None:
+                self.tail = newNode
+            else:
+                newNode.setNext(self.head)
+            self.head = newNode
+        else:
+            count = 0
+            current = self.head
+            # get the node that is previous to the pos node 
+            while count < (pos - 1):
+                count += 1
+                current = current.getNext()
+            newNode = Node(item)
+            newNode.setNext(current.getNext())
+            current.setNext(newNode)
         
     def pop(self, pos = None):
         count = 0

@@ -129,7 +129,7 @@ class UnorderedList:
             current.setNext(newNode)
         
     def pop(self, pos = None):
-        if pop >= self.size():
+        if pop >= self.size() or pos < 0:
             raise IndexError
         if pos == None:
             pos = self.size() - 1

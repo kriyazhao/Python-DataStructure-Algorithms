@@ -65,8 +65,6 @@ def MergeSort(MLL, first, last):
             mergeNode.setData(rightNode.getData())
             rightNode = rightNode.getNext()
             mergeNode = mergeNode.getNext()
-    else:
-        return
 
 print "=================================="
 

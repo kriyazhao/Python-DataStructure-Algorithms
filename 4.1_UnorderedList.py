@@ -71,7 +71,8 @@ class UnorderedList:
     
     def remove(self, item):
         if self.size() == 0:
-            raise KeyError
+            raise KeyError("remove from an empty linked list!")
+            return
         else:
             current = self.head
             previous = None
@@ -79,7 +80,8 @@ class UnorderedList:
                 previous = current
                 current = current.getNext()
             if current.getData() != item:
-                raise KeyError
+                raise KeyError("item cannot be found in the linked list!")
+                return
             else:
                 # if item is found at the head position
                 if previous == None:
@@ -104,14 +106,19 @@ class UnorderedList:
     def index(self, item):
         count = 0
         current = self.head
-        while current.getData() != item:
+        while current.getData() != item and current.getNext() != None:
             count += 1
             current = current.getNext()
-        return count
+        if current.getData() != item:
+            raise KeyError("item cannot be found in the linked list!")
+            return
+        else:
+            return count
 
-    def insert(self, pos, item):
+    def insertBefore(self, pos, item):
         if pos >= self.size() or pos < 0:
-            raise IndexError
+            raise IndexError("position is out of bound!")
+            return
         elif pos == 0:
             newNode = Node(item)
             if self.head == None:
@@ -129,10 +136,32 @@ class UnorderedList:
             newNode = Node(item)
             newNode.setNext(current.getNext())
             current.setNext(newNode)
-        
+    
+    def insertAfter(self, pos, item):
+        if pos >= self.size() or pos < 0:
+            raise IndexError("position is out of bound!")
+            return
+        elif pos == 0:
+            if self.head == None:
+                newNode = Node(item)
+                self.head = newNode
+                self.tail = newNode
+        else:
+            count = 0
+            current = self.head
+            while count < pos:
+                count += 1
+                current = current.getNext()
+            newNode = Node(item)
+            newNode.setNext(current.getNext())
+            current.setNext(newNode)
+            if current.getNext() == None:
+                self.tail = newNode
+
     def pop(self, pos = None):
         if pop >= self.size() or pos < 0:
-            raise IndexError
+            raise IndexError("position is out of bound!")
+            return
         if pos == None:
             pos = self.size() - 1
         count = 0

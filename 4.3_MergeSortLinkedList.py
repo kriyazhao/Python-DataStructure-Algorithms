@@ -1,7 +1,7 @@
 import UnorderedList
 
 #===========================================================================
-
+# create a linked list to test MergeSort()
 myList = UnorderedList()
 myList.add(13)
 myList.add(38)
@@ -13,7 +13,7 @@ myList.append(70)
 myList.insert(4, 48)
 
 #===========================================================================
-
+# define a function to return a sliced linked list given the startnode and endnode
 def getSlice(MLL, first, last):
     #  a function validating input params should be added later on
     current = MLL.head
@@ -25,6 +25,7 @@ def getSlice(MLL, first, last):
         current = current.getNext()
     return sliceLL
 
+# define a function to return the midnode between the startnode and endnode
 def getMid(MLL, first, last):
     #  a function validating input params should be added later on
     current = MLL.head
@@ -39,6 +40,7 @@ def getMid(MLL, first, last):
             faster = faster.getNext().getNext()
     return current
 
+# define a function to merge-sort a linked list
 def MergeSort(MLL, first, last):
     #  a function validating input params should be added later on
     if first != last:

@@ -1,6 +1,6 @@
-import UnorderedList()
+import UnorderedList
 
-print "=================================="
+#===========================================================================
 
 myList = UnorderedList()
 myList.add(13)
@@ -12,7 +12,7 @@ myList.add(27)
 myList.append(70)
 myList.insert(4, 48)
 
-print "=================================="
+#===========================================================================
 
 def getSlice(MLL, first, last):
     #  a function validating input params should be added later on
@@ -69,7 +69,7 @@ def MergeSort(MLL, first, last):
             rightNode = rightNode.getNext()
             mergeNode = mergeNode.getNext()
 
-print "=================================="
+#===========================================================================
 
 MergeSort(myList, myList.head, myList.tail)
 

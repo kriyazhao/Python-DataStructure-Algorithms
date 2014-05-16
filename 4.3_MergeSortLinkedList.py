@@ -1,5 +1,7 @@
 import UnorderedList()
 
+print "=================================="
+
 myList = UnorderedList()
 myList.add(13)
 myList.add(38)
@@ -7,16 +9,8 @@ myList.add(50)
 myList.add(14)
 myList.add(45)
 myList.add(27)
-print "the size of the list is: ", myList.size()
-print "If number 14 is in the list? ", myList.search(14)
-#myList.remove(50)
-print "the size of the list is: ", myList.size()
 myList.append(70)
-print "the index of number '14' is: ", myList.index(14)
 myList.insert(4, 48)
-#print "Pop the item at position 2 in the list:", myList.pop(2)
-#print "Pop the last item in the ordered list:", myList.pop()
-#print "the size of the list is: ", myList.size()
 
 print "=================================="
 
@@ -73,11 +67,9 @@ def MergeSort(MLL, first, last):
             mergeNode = mergeNode.getNext()
     else:
         return
-current = myList.head
-while current != None:
-    print current.getData()
-    current = current.getNext()
-    
+
+print "=================================="
+
 MergeSort(myList, myList.head, myList.tail)
 
 current = myList.head

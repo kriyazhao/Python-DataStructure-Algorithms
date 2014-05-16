@@ -15,6 +15,7 @@ myList.insert(4, 48)
 print "=================================="
 
 def getSlice(MLL, first, last):
+    #  a function validating input params should be added later on
     current = MLL.head
     while current != first:
         current = current.getNext()
@@ -25,6 +26,7 @@ def getSlice(MLL, first, last):
     return sliceLL
 
 def getMid(MLL, first, last):
+    #  a function validating input params should be added later on
     current = MLL.head
     while current != first:
         current = current.getNext()
@@ -38,6 +40,7 @@ def getMid(MLL, first, last):
     return current
 
 def MergeSort(MLL, first, last):
+    #  a function validating input params should be added later on
     if first != last:
         mid = getMid(MLL, first, last)      
         MergeSort(MLL, first, mid)

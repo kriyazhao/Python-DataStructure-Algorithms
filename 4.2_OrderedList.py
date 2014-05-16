@@ -52,29 +52,30 @@ class OrderedList:
     def index(self, item):
         count = 0
         current = self.head
-        while current.getData() != item:
-            if current.getNext() != None:
-                count += 1
-                current = current.getNext()
-            else:
-                raise IndexError
-        return count
+        while current.getData() != item and current.getNext() != None:
+            count += 1
+            current = current.getNext()
+        if current.getData() != item:
+            raise KeyError("item cannot be found in the linked list!")
+            return
+        else:
+            return count
 
     def add(self, item):
         current = self.head
         previous = None
-        while current != None:
-            if item < current.getData():
-                break
-            else:
-                previous = current
-                current = current.getNext()
+        while item > current.getData() and current.getNext() != None:
+            previous = current
+            current = current.getNext()
         newNode = Node(item)
-        newNode.setNext(current)
-        if previous == None:
-            self.head = newNode
+        if item < current.getData():
+            newNode.setNext(current)
+            if previous == None:
+                self.head = newNode
+            else:
+                previous.setNext(newNode)
         else:
-            previous.setNext(newNode)
+            current.setNext(newNode)
 
     def search(self, item):
         current = self.head
@@ -88,44 +89,48 @@ class OrderedList:
         return False
     
     def remove(self, item):
+        if self.size() == 0:
+            raise IndexError("pop from an empty linked list!")
+            return
         current = self.head
         previous = None
-        result = False
-        while not result:
-            if not current.getData() == item:
-                previous = current
-                current = current.getNext()
-            else:
-                result = True
-        # if item is found at the head position
-        if previous == None:
-            self.head = current.getNext()
+        while current.getData() != item and current.getNext() != None:
+            previous = current
+            current = current.getNext()
+        if current.getData() != item:
+            raise KeyError("item cannot be found in the linked list!")
+            return 
         else:
-            previous.setNext(current.getNext())
+            if previous == None:
+                self.head = current.getNext()
+            else:
+                previous.setNext(current.getNext())
             
     def pop(self, pos = None):
-        count = 0
-        current = self.head
-        previous = None
-        if pos >= self.size():
-            raise IndexError
+        if self.size() == 0:
+            raise IndexError("pop from an empty linked list!")
+            return
+        if pos > self.size() or pos < 0:
+            raise IndexError("position is out of bound!")
+            return
+        elif type(pos) is not int:
+            raise TypeError("position is not an integer!")
             return
         else:
-            if current.getNext() == None:
-                self.head = None
-                return current.getData()
+            if pos == None:
+                pos = self.size() - 1 
+            count = 0
+            current = self.head
+            previous = None
+            while count < pos:
+                count += 1
+                previous = current
+                current = current.getNext()
+            if previous == None:
+                self.head = current.getNext()
             else:
-                if pos == None:
-                    while current.getNext() != None:
-                        previous = current
-                        current = current.getNext()
-                else:
-                    while count < pos:
-                        count += 1
-                        previous = current
-                        current = current.getNext()
                 previous.setNext(current.getNext())
-                return current.getData()
+            return current.getData()
             
 myList = OrderedList()
 myList.add(13)

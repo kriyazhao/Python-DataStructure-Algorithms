@@ -120,6 +120,9 @@ class UnorderedList:
         if pos >= self.size() or pos < 0:
             raise IndexError("position is out of bound!")
             return
+        elif type(pos) is not int:
+            raise TypeError("position is not an integer!")
+            return
         elif pos == 0:
             newNode = Node(item)
             if self.head == None:
@@ -142,6 +145,9 @@ class UnorderedList:
         if pos >= self.size() or pos < 0:
             raise IndexError("position is out of bound!")
             return
+        elif type(pos) is not int:
+            raise TypeError("position is not an integer!")
+            return
         elif pos == 0:
             if self.head == None:
                 newNode = Node(item)
@@ -162,6 +168,9 @@ class UnorderedList:
     def pop(self, pos = None):
         if pop >= self.size() or pos < 0:
             raise IndexError("position is out of bound!")
+            return
+        elif type(pos) is not int:
+            raise TypeError("position is not an integer!")
             return
         if pos == None:
             pos = self.size() - 1

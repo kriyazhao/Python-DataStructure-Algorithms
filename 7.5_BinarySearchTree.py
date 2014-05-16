@@ -36,14 +36,16 @@ class TreeNode:
     def hasBothChildren(self):
         return self.leftChild and self.rightChild
 
-    def replaceNodeData(self, key, val, left, right):
+    def replaceNodeData(self, key, val, left = None, right = None):
         self.key = key
         self.payload = val
-        self.leftChild = left
-        self.rightChild = right
-        if self.hasLeftChild():
+        if left:
+            self.leftChild = left
+        if right:
+            self.rightChild = right
+        if self.hasLeftChild() and left:
             self.leftChild.parent = self
-        if self.hasRightChild():
+        if self.hasRightChild() and right:
             self.rightChild.parent = self
 
     def __iter__(self):
@@ -139,10 +141,8 @@ class BinarySearchTree:
                     delNode.leftChild.parent = delNode.parent
                     delNode.parent.rightChild = delNode.leftChild 
                 else: # if delNode is the root node
-                    delNode.replaceNodeData(delNode.leftChild.key,
-                                            delNode.leftChild.value,
-                                            delNode.leftChild.leftChild,
-                                            delNode.leftChild.rightChild)
+                    delNode.leftChild.parent = None
+                    self.root = delNode.leftChild
             else:
                 if delNode.isLeftChild():
                     delNode.rightChild.parent = delNode.parent
@@ -151,10 +151,8 @@ class BinarySearchTree:
                     delNode.rightChild.parent = delNode.parent
                     delNode.parent.rightChild = delNode.rightChild 
                 else:
-                    delNode.replaceNodeData(delNode.rightChild.key,
-                                            delNode.rightChild.value,
-                                            delNode.rightChild.leftChild,
-                                            delNode.rightChild.rightChild)
+                    delNode.rightChild.parent = None
+                    self.root = delNode.rightChild
 
     def findSuccessor(self):
         currentNode = None

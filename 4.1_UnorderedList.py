@@ -6,15 +6,16 @@
 # Description: create a UnorderedList class and define some functions:
 #              - Node class    define a node class to store item's properties in the list
 #              - UnorderedList define a unorderedlist class
-#                  - isEmpty()   O(1)
-#                  - size()      O(n)
-#                  - index()     O(n)
-#                  - add()       O(1)
-#                  - append()    O(1)
-#                  - insert()    O(n)
-#                  - search()    O(n)
-#                  - remove()    O(n)
-#                  - pop(pos)    O(n)
+#                  - isEmpty()         O(1)
+#                  - size()            O(n)
+#                  - index()           O(n)
+#                  - add()             O(1)
+#                  - append()          O(1)
+#                  - insertBefore()    O(n)
+#                  - insertAfter()     O(n)
+#                  - search()          O(n)
+#                  - remove()          O(n)
+#                  - pop(pos)          O(n)
 # ---------------------------------------------------------------------------
 
 class Node:

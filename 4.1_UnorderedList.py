@@ -95,10 +95,12 @@ class UnorderedList:
 
     def append(self, item):
         newNode = Node(item)
-        oldTail = self.tail
-        oldTail.setNext(newNode)
+        if self.head = None:
+            self.head = newNode
+        else:
+            self.tail.setNext(newNode)
         self.tail = newNode
-        
+
     def index(self, item):
         count = 0
         current = self.head

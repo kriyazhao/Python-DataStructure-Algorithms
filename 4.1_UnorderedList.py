@@ -108,7 +108,7 @@ class UnorderedList:
         return count
 
     def insert(self, pos, item):
-        if pos >= self.size():
+        if pos >= self.size() or pos < 0:
             raise IndexError
         elif pos == 0:
             newNode = Node(item)

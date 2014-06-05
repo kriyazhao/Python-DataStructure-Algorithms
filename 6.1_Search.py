@@ -151,16 +151,17 @@ class HashTable():
             return False
 
     def __del__(self, key):
-        rehashVal = self.hashFunction(key)
-        count = 0
-        while self.slots[rehashVal] != key and count < self.size:
-            rehashVal = self.reHash(rehashVal)
-            count += 1
-        if self.slots[rehashVal] == key:
-            self.slots[rehashVal] = None
-            self.data[rehashVal] = None
-        else:
-            print key, "is not a key in the hash table!"
+        startHash = self.hashFunction(key)
+        pos = startHash
+        while self.slots[pos] != None:
+            if self.slots[pos] == key:
+                self.slots[pos] = None
+                self.data[pos] = None
+            else:
+                pos = self.reHash(pos)
+                if pos == startHash
+                    print key, "is not a key in the hash table!"
+        print key, "is not a key in the hash table!"
         
 myHash = HashTable()
 print "Hash Search:"

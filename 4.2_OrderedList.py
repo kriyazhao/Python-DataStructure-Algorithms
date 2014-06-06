@@ -113,12 +113,12 @@ class OrderedList:
         if pos > self.size() or pos < 0:
             raise IndexError("position is out of bound!")
             return
+        elif pos == None:
+            pos = self.size() - 1
         elif type(pos) is not int:
             raise TypeError("position is not an integer!")
             return
         else:
-            if pos == None:
-                pos = self.size() - 1 
             count = 0
             current = self.head
             previous = None

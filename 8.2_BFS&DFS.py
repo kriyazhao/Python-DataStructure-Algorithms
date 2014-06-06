@@ -9,6 +9,7 @@ class BFSGraph(Graph):
         Graph.__init__(self)
 
     def BFS(self, startVert):
+        startVert.setColor("grey")
         vertQueue = Queue()
         vertQueue.enqueue(startVert)
         while vertQueue.size() > 0:
@@ -17,7 +18,7 @@ class BFSGraph(Graph):
             for nbr in currentVert.getConnections():
                 print "current nbr is:", nbr.getID()
                 if nbr.getColor() == "white":
-                    nbr.setColor("gray")
+                    nbr.setColor("grey")
                     nbr.setDistance(currentVert.getDistance() + 1)
                     nbr.setPred(currentVert)
                     print "enqueue:", nbr.getID()
@@ -62,7 +63,7 @@ class DFSGraph(Graph):
                 self.DFSVisit(currentVert)
 	
     def DFSVisit(self, startVert):
-        startVert.setColor("gray")
+        startVert.setColor("grey")
         self.time += 1
         print "Set discovery time for vertex:", startVert.getID()
         startVert.setDiscovery(self.time)

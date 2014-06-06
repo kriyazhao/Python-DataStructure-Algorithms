@@ -94,7 +94,7 @@ class OrderedList:
             return
         current = self.head
         previous = None
-        while current.getData() != item and current.getNext() != None:
+        while current.getData() < item and current.getNext() != None:
             previous = current
             current = current.getNext()
         if current.getData() != item:

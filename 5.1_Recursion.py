@@ -70,15 +70,19 @@ def palChecker(inputStr):
     else:
         if (inputStr[0] in negStr) and (inputStr[-1] in negStr):
             print "both top and bottom chars contain neglected punctuation"
+            print "comparing:{0} and {1}".format(inputStr[1], inputStr[-2])
             return (inputStr[1] == inputStr[-2]) and palChecker(inputStr[2:-2])
         elif inputStr[0] in negStr:
             print "top char contains neglected punctuation"
+            print "comparing:{0} and {1}".format(inputStr[1], inputStr[-1])
             return (inputStr[1] == inputStr[-1]) and palChecker(inputStr[2:-1])
         elif inputStr[-1] in negStr:
             print "bottom char contains neglected punctuation"
+            print "comparing:{0} and {1}".format(inputStr[0], inputStr[-2])
             return (inputStr[0] == inputStr[-2]) and palChecker(inputStr[1:-2])
         else:
             print "compare top and bottom chars"
+            print "comparing:{0} and {1}".format(inputStr[0], inputStr[-1])
             return (inputStr[0] == inputStr[-1]) and palChecker(inputStr[1:-1])
 
 print palChecker("12 345 4321")

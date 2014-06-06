@@ -68,15 +68,15 @@ def palChecker(inputStr):
             print "there are only two char left, they don't match!"
             return False      
     else:
-        if inputStr[0] in negStr:
+        if (inputStr[0] in negStr) and (inputStr[-1] in negStr):
+            print "both top and bottom chars contain neglected punctuation"
+            return (inputStr[1] == inputStr[-2]) and palChecker(inputStr[2:-2])
+        elif inputStr[0] in negStr:
             print "top char contains neglected punctuation"
             return (inputStr[1] == inputStr[-1]) and palChecker(inputStr[2:-1])
         elif inputStr[-1] in negStr:
             print "bottom char contains neglected punctuation"
             return (inputStr[0] == inputStr[-2]) and palChecker(inputStr[1:-2])
-        elif (inputStr[0] in negStr) and (inputStr[-1] in negStr):
-            print "both top and bottom chars contain neglected punctuation"
-            return (inputStr[0] == inputStr[-2]) and palChecker(inputStr[2:-2])
         else:
             print "compare top and bottom chars"
             return (inputStr[0] == inputStr[-1]) and palChecker(inputStr[1:-1])

@@ -86,11 +86,9 @@ class UnorderedList:
             else:
                 # if item is found at the head position
                 if previous == None:
+                    self.head = current.getNext()
                     if self.size() == 1:
-                        self.head = None
                         self.tail = None
-                    else:
-                        self.head = current.getNext()
                 else:
                     previous.setNext(current.getNext())
                     if current.getNext() == None:

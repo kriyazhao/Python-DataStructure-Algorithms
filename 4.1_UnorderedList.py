@@ -164,14 +164,17 @@ class UnorderedList:
                 self.tail = newNode
 
     def pop(self, pos = None):
+        if self.size() == 0:
+            raise KeyError("pop from an empty linked list!")
+            return        
         if pop >= self.size() or pos < 0:
             raise IndexError("position is out of bound!")
             return
+        elif pos == None:
+            pos = self.size() - 1
         elif type(pos) is not int:
             raise TypeError("position is not an integer!")
             return
-        if pos == None:
-            pos = self.size() - 1
         count = 0
         previous = None
         current = self.head

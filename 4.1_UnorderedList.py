@@ -87,7 +87,7 @@ class UnorderedList:
                 # if item is found at the head position
                 if previous == None:
                     self.head = current.getNext()
-                    if self.size() == 1:
+                    if self.head == None:
                         self.tail = None
                 else:
                     previous.setNext(current.getNext())
@@ -121,13 +121,6 @@ class UnorderedList:
         elif type(pos) is not int:
             raise TypeError("position is not an integer!")
             return
-        elif pos == 0:
-            newNode = Node(item)
-            if self.head == None:
-                self.tail = newNode
-            else:
-                newNode.setNext(self.head)
-            self.head = newNode
         else:
             count = 0
             current = self.head
@@ -136,8 +129,12 @@ class UnorderedList:
                 count += 1
                 current = current.getNext()
             newNode = Node(item)
-            newNode.setNext(current.getNext())
-            current.setNext(newNode)
+            if pos == 0:
+                self.head = newNode
+                self.tail = newNode
+            else:
+                newNode.setNext(current.getNext())
+                current.setNext(newNode)
     
     def insertAfter(self, pos, item):
         if pos >= self.size() or pos < 0:
@@ -146,11 +143,6 @@ class UnorderedList:
         elif type(pos) is not int:
             raise TypeError("position is not an integer!")
             return
-        elif pos == 0:
-            if self.head == None:
-                newNode = Node(item)
-                self.head = newNode
-                self.tail = newNode
         else:
             count = 0
             current = self.head
@@ -158,10 +150,14 @@ class UnorderedList:
                 count += 1
                 current = current.getNext()
             newNode = Node(item)
-            newNode.setNext(current.getNext())
-            current.setNext(newNode)
-            if current.getNext() == None:
+            if pos == 0:
+                self.head = newNode
                 self.tail = newNode
+            else:
+                newNode.setNext(current.getNext())
+                current.setNext(newNode)
+                if current.getNext() == None:
+                    self.tail = newNode
 
     def pop(self, pos = None):
         if self.size() == 0:
@@ -184,7 +180,7 @@ class UnorderedList:
             current = current.getNext()
         if previous == None:
             self.head = current.getNext()
-            if self.size() == 1:
+            if self.head == None:
                 self.tail = None
         else:
             previous.setNext(current.getNext())

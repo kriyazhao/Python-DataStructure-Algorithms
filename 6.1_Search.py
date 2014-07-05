@@ -118,15 +118,12 @@ class HashTable:
         return (oldHash + 1) % self.size
 
     def get(self, key):
-        startHash = self.hashFunction(key)
-        pos = startHash
+        pos = self.hashFunction(key)
         while self.slots[pos] != None:
             if self.slots[pos] == key:
                 return self.data[pos]
             else:
                 pos = self.reHash(pos)
-                if pos == startHash:
-                    return None
         return None
 
     def __getitem__(self, key):
@@ -145,23 +142,21 @@ class HashTable:
         return size
     
     def __contains__(self, key):
-        if self.get(key):
+        if self.get(key) != None:
             return True
         else:
             return False
 
     def __del__(self, key):
-        startHash = self.hashFunction(key)
-        pos = startHash
+        pos = self.hashFunction(key)
         while self.slots[pos] != None:
             if self.slots[pos] == key:
                 self.slots[pos] = None
                 self.data[pos] = None
+                return
             else:
                 pos = self.reHash(pos)
-                if pos == startHash
-                    print key, "is not a key in the hash table!"
-        print key, "is not a key in the hash table!"
+        raise KeyError(key + "is not a key in the hash table!")
         
 myHash = HashTable()
 print "Hash Search:"

@@ -83,7 +83,7 @@ print "Is 4 in the list", myList, recurBinarySearch(myList, 0, len(myList) - 1, 
 
 #-----------------------------------------------------------------
 # Define a HashTable class for dictionary data type
-class HashTable():
+class HashTable:
     
     def __init__(self):
         self.size = 11

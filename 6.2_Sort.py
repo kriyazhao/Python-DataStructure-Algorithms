@@ -98,7 +98,7 @@ def mergeSort(inputList, first, last):
 
         leftIndex = 0
         rightIndex = 0
-        mergeIndex = 0
+        mergeIndex = first
         leftList = inputList[first:midSplit]
         rightList = inputList[midSplit:last]
         while leftIndex < len(leftList) and rightIndex < len(rightList):
